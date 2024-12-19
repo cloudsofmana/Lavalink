@@ -7,7 +7,7 @@ Allows for sending audio without it ever reaching any of your shards.
 
 Being used in production by FredBoat, Dyno, LewdBot, and more.
 
-A [basic example bot](Testbot) is available.
+A [basic example bot](https://github.com/lavalink-devs/lavalink-client/tree/main/testbot) is available.
 
 [![Lavalink Guild](https://discordapp.com/api/guilds/1082302532421943407/embed.png?style=banner2)](https://discord.gg/ZW4s47Ppw4)
 
@@ -34,7 +34,7 @@ A [basic example bot](Testbot) is available.
 ## Features
 * Powered by Lavaplayer
 * Minimal CPU/memory footprint
-* Twitch/YouTube stream support
+* Twitch/YouTube (via [this](https://github.com/lavalink-devs/youtube-source#plugin) plugin) stream support
 * Event system
 * Seeking
 * Volume control
@@ -43,7 +43,7 @@ A [basic example bot](Testbot) is available.
 * Basic authentication
 * Prometheus metrics
 * Docker images
-* [Plugin support](PLUGINS.md)
+* [Plugin support](https://lavalink.dev/plugins.html)
 
 ## Requirements
 

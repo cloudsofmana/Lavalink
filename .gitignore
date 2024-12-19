@@ -22,3 +22,5 @@ application.yml
 LavalinkServer/plugins
 .cache/
 site/
+.DS_Store
+.kotlin/

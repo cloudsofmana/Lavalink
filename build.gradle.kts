@@ -2,6 +2,7 @@ import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import com.vanniktech.maven.publish.SonatypeHost
 import org.ajoberstar.grgit.Grgit
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("org.jetbrains.dokka") version "1.8.20" apply false
@@ -10,9 +11,9 @@ plugins {
     id("org.springframework.boot") version "3.1.0" apply false
     id("org.sonarqube") version "4.2.0.3129"
     id("com.adarshr.test-logger") version "3.2.0"
-    id("org.jetbrains.kotlin.jvm") version "1.8.22"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.8.22"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.22" apply false
+    id("org.jetbrains.kotlin.jvm") version "2.0.0"
+    id("org.jetbrains.kotlin.plugin.allopen") version "2.0.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0" apply false
     alias(libs.plugins.maven.publish.base) apply false
 }
 
@@ -37,7 +38,7 @@ subprojects {
     }
 
     tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
+        compilerOptions.jvmTarget = JvmTarget.JVM_17
     }
 
     tasks.withType<JavaCompile> {
@@ -54,7 +55,7 @@ subprojects {
                         val snapshots = "https://maven.lavalink.dev/snapshots"
                         val releases = "https://maven.lavalink.dev/releases"
 
-                        maven(if ((version as String).endsWith("-SNAPSHOT")) releases else snapshots) {
+                        maven(if ((version as String).endsWith("-SNAPSHOT")) snapshots else releases) {
                             credentials {
                                 password = findProperty("MAVEN_PASSWORD") as String?
                                 username = findProperty("MAVEN_USERNAME") as String?
